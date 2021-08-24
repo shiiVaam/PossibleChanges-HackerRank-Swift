@@ -1,0 +1,30 @@
+func possibleChanges(usernames: [String]) -> [String] {
+    // Write your code here
+var arrTemp = [String]()
+    
+for name in usernames{
+
+    isSwap(name: name) == true ? arrTemp.append("YES") : arrTemp.append("NO")
+}
+    return arrTemp
+}
+
+
+public func isSwap(name: String) -> Bool{
+    var oldValue: UInt8 = 0
+    var arrTemp = [Bool]()
+    name.forEach{
+        char in
+        oldValue = (name.first?.asciiValue)!
+        print("\(char.asciiValue)")
+        if char.asciiValue! >= oldValue{
+            oldValue = char.asciiValue!
+            arrTemp.append(false)
+        }else{
+            arrTemp.append(true)
+
+        }
+    }
+        return arrTemp.contains(true) ? true : false
+}
+possibleChanges(usernames: ["ace"])
